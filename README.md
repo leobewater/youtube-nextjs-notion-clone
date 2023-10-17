@@ -14,11 +14,13 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 
 ## convex.dev
 > npm install convex
+## deploy your changes
 > npx convex dev
 ## follow the login link
 
 > npm install @clerk/nextjs
 ## set up a JWT template in clerk.com for convex
+## doc: https://docs.convex.dev/auth/clerk
 ```
 
 ## To Run
