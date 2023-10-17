@@ -9,6 +9,9 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 
 > install VS CODE "Trunk Check" plugin
 > https://trunk.io/
+
+> npm install next-themes
+
 ```
 
 ## To Run
