@@ -23,8 +23,10 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 > npm install @clerk/clerk-react
 ```
 
+
 ## To Run
 
 ```bash
-npm run dev
+> npm install convex
+> npm run dev
 ```
