@@ -7,10 +7,15 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 > npx shadcn-ui@latest init
 > npx shadcn-ui@latest add
 
-> install VS CODE "Trunk Check" plugin
-> https://trunk.io/
+## install VS CODE "Trunk Check" plugin
+## https://trunk.io/
 
 > npm install next-themes
+
+## convex.dev
+> npm install convex
+> npx convex dev
+## follow the login link
 
 ```
 
