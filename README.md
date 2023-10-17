@@ -18,5 +18,4 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 
 ```bash
 npm run dev
-# or
 ```

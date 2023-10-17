@@ -40,7 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
           storageKey="jotion-theme-2"
         >
-          {children}{" "}
+          {children}
         </ThemeProvider>
       </body>
     </html>
