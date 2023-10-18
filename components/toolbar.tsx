@@ -2,11 +2,11 @@
 
 import { ElementRef, useRef, useState } from "react";
 import { Doc } from "@/convex/_generated/dataModel";
+import { api } from "@/convex/_generated/api";
+import { useMutation } from "convex/react";
 import { ImageIcon, Smile, X } from "lucide-react";
 import { IconPicker } from "./icon-picker";
 import { Button } from "./ui/button";
-import { useMutation } from "convex/react";
-import { api } from "@/convex/_generated/api";
 import TextareaAutosize from "react-textarea-autosize";
 import { useCoverImage } from "@/hooks/use-cover-image";
 
