@@ -30,6 +30,8 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 ## edgestore.dev
 > npm install @edgestore/server @edgestore/react zod
 > npm install tailwind-merge react-dropzone lucide-react
+
+> npm i @blocknote/react @blocknote/core
 ```
 
 
