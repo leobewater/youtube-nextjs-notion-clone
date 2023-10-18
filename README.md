@@ -24,6 +24,7 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 
 > npm i usehooks-ts
 > npm i sonner
+> npm i zustand
 ```
 
 
