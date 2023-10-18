@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ChevronsLeft, MenuIcon, PlusCircle } from "lucide-react";
+import { ChevronsLeft, MenuIcon, PlusCircle, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
@@ -113,7 +113,7 @@ const Navigation = () => {
       success: "New note created!",
       error: "Failed to create a new note",
     });
-  }
+  };
 
   return (
     <>
@@ -135,8 +135,10 @@ const Navigation = () => {
         >
           <ChevronsLeft className="h-6 w-6" />
         </div>
+        {/* User avatar and add new note button */}
         <div>
           <UserItem />
+          <Item label="Search" icon={Search} isSearch onClick={() => {}} />
           <Item onClick={handleCreate} label="New note" icon={PlusCircle} />
         </div>
         <div className="mt-4">
