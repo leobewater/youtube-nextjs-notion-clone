@@ -108,7 +108,7 @@ const Item = ({
         </kbd>
       )}
 
-      {/* hover document show + icon */}
+      {/* hover document show add and delete icon */}
       {!!id && (
         <div className="ml-auto flex items-center gap-x-2">
           <div
