@@ -30,8 +30,12 @@ export const CoverImageModal = () => {
       setIsSubmitting(true);
       setFile(file);
 
+      // when change cover, replace the image file with new url instead of creating another new url
       const res = await edgestore.publicFiles.upload({
         file,
+        options: {
+          replaceTargetUrl: coverImage.url,
+        },
       });
 
       await update({
