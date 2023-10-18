@@ -1,12 +1,10 @@
 "use client";
 import { SignOutButton, useUser } from "@clerk/clerk-react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -57,7 +55,10 @@ const UserItem = () => {
             </div>
           </div>
           <DropdownMenuSeparator />
-          <DropdownMenuItem asChild className="w-full cursor-pointer text-muted-foreground">
+          <DropdownMenuItem
+            asChild
+            className="w-full cursor-pointer text-muted-foreground"
+          >
             <SignOutButton>Log out</SignOutButton>
           </DropdownMenuItem>
         </DropdownMenuContent>

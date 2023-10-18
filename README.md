@@ -23,6 +23,7 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 > npm install @clerk/clerk-react
 
 > npm i usehooks-ts
+> npm i sonner
 ```
 
 
