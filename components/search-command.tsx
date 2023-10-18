@@ -41,11 +41,11 @@ export const SearchCommand = () => {
     };
 
     document.addEventListener("keydown", down);
-    return document.removeEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, [toggle]);
 
   const onSelect = (id: string) => {
-    router.push(`/documents/{$id}`);
+    router.push(`/documents/${id}`);
     onClose();
   };
 
@@ -64,7 +64,7 @@ export const SearchCommand = () => {
               key={document._id}
               value={`${document._id}-${document.title}`}
               title={document.title}
-              onSelect={onSelect}
+              onSelect={() => onSelect(document._id)}
             >
               {document.icon ? (
                 <p className="mr-2 text-[18px]">{document.icon}</p>
