@@ -16,6 +16,7 @@ export const IconPicker = ({
   children,
   asChild,
 }: IconPickerProps) => {
+  // getting theme and passing it to EmojiPicker
   const { resolvedTheme } = useTheme();
   const currentTheme = (resolvedTheme || "light") as keyof typeof themeMap;
 
