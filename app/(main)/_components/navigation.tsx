@@ -7,6 +7,7 @@ import {
   PlusCircle,
   Search,
   Settings,
+  Trash,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
@@ -17,6 +18,11 @@ import UserItem from "./user-item";
 import Item from "./item";
 import { toast } from "sonner";
 import DocumentList from "./document-list";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -147,10 +153,22 @@ const Navigation = () => {
           <UserItem />
           <Item label="Search" icon={Search} isSearch onClick={() => {}} />
           <Item label="Settings" icon={Settings} onClick={() => {}} />
-          <Item onClick={handleCreate} label="New note" icon={PlusCircle} />
+          <Item onClick={handleCreate} label="Add a note" icon={PlusCircle} />
         </div>
         <div className="mt-4">
           <DocumentList />
+          <Item onClick={handleCreate} label="Add a note" icon={PlusCircle} />
+          <Popover>
+            <PopoverTrigger className="w-full mt-4">
+              <Item label="Trash" icon={Trash} />
+            </PopoverTrigger>
+            <PopoverContent
+              className="p-0 w-72"
+              side={isMobile ? "bottom" : "right"}
+            >
+              Trash box
+            </PopoverContent>
+          </Popover>
         </div>
 
         {/* sidebar resize thin bar */}
