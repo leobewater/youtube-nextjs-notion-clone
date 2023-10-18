@@ -23,7 +23,7 @@ export const archive = mutation({
       throw new Error("Unauthorized");
     }
 
-    const resursiveArchive = async (documentId: Id<"documents">) => {
+    const recursiveArchive = async (documentId: Id<"documents">) => {
       // get notes by index for better performance
       const children = await ctx.db
         .query("documents")
@@ -38,7 +38,7 @@ export const archive = mutation({
         });
 
         // archive child docs
-        await resursiveArchive(child._id);
+        await recursiveArchive(child._id);
       }
     };
 
@@ -48,7 +48,7 @@ export const archive = mutation({
     });
 
     // check children notes and archive them too
-    resursiveArchive(args.id);
+    recursiveArchive(args.id);
 
     return document;
   },
@@ -154,7 +154,7 @@ export const restore = mutation({
       throw new Error("Unauthorized");
     }
 
-    const resursiveRestore = async (documentId: Id<"documents">) => {
+    const recursiveRestore = async (documentId: Id<"documents">) => {
       // get notes by index for better performance
       const children = await ctx.db
         .query("documents")
@@ -169,7 +169,7 @@ export const restore = mutation({
         });
 
         // restore child docs
-        await resursiveRestore(child._id);
+        await recursiveRestore(child._id);
       }
     };
 
@@ -186,7 +186,7 @@ export const restore = mutation({
 
     const document = await ctx.db.patch(args.id, options);
 
-    resursiveRestore(args.id);
+    recursiveRestore(args.id);
 
     return document;
   },
@@ -279,7 +279,7 @@ export const update = mutation({
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
     if (!identity) {
-      throw new Error("Not authenticated");
+      throw new Error("Unauthenticated");
     }
 
     const userId = identity.subject;
@@ -295,7 +295,7 @@ export const update = mutation({
       throw new Error("Unauthorized");
     }
 
-    const document = await ctx.db.patch(id, {
+    const document = await ctx.db.patch(args.id, {
       ...rest,
     });
 
@@ -307,13 +307,15 @@ export const removeIcon = mutation({
   args: { id: v.id("documents") },
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
+
     if (!identity) {
-      throw new Error("Not authenticated");
+      throw new Error("Unauthenticated");
     }
 
     const userId = identity.subject;
 
     const existingDocument = await ctx.db.get(args.id);
+
     if (!existingDocument) {
       throw new Error("Not found");
     }
@@ -328,4 +330,33 @@ export const removeIcon = mutation({
 
     return document;
   },
+});
+
+export const removeCoverImage = mutation({
+  args: { id: v.id("documents") },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Unauthenticated");
+    }
+
+    const userId = identity.subject;
+
+    const existingDocument = await ctx.db.get(args.id);
+
+    if (!existingDocument) {
+      throw new Error("Not found");
+    }
+
+    if (existingDocument.userId !== userId) {
+      throw new Error("Unauthorized");
+    }
+
+    const document = await ctx.db.patch(args.id, {
+      coverImage: undefined,
+    });
+
+    return document;
+  }
 });
