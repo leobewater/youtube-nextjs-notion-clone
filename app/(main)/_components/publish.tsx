@@ -109,6 +109,14 @@ export const Publish = ({ initialData }: PublishProps) => {
                 )}
               </Button>
             </div>
+            <Button
+              size="sm"
+              className="w-full text-xs bg-red-500 hover:bg-red-700"
+              disabled={isSubmitting}
+              onClick={onUnpublish}
+            >
+              Unpublish
+            </Button>
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center">
@@ -120,7 +128,7 @@ export const Publish = ({ initialData }: PublishProps) => {
             <Button
               disabled={isSubmitting}
               onClick={onPublish}
-              className="w-full text-xs"
+              className="w-full text-xs bg-green-600 hover:bg-green-700"
               size="sm"
             >
               Publish
