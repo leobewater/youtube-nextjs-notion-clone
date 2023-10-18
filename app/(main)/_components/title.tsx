@@ -49,7 +49,7 @@ export const Title = ({ initialData }: TitleProps) => {
 
   return (
     <div className="flex items-center gap-x-1">
-      {!!initialData.icon && <p className="">{initialData.icon}</p>}
+      {!!initialData.icon && <p>{initialData.icon}</p>}
       {isEditing ? (
         <Input
           ref={inputRef}
@@ -67,7 +67,7 @@ export const Title = ({ initialData }: TitleProps) => {
           size="sm"
           className="font-normal h-auto p-1"
         >
-          <span className="truncate">{initialData.title}</span>
+          <span className="truncate">{initialData?.title}</span>
         </Button>
       )}
     </div>
