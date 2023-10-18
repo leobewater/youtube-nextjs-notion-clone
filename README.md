@@ -21,6 +21,8 @@ Repo: https://github.com/AntonioErdeljac/notion-clone-tutorial
 ## set up a JWT template in clerk.com for convex
 ## doc: https://docs.convex.dev/auth/clerk
 > npm install @clerk/clerk-react
+
+> npm i usehooks-ts
 ```
 
 
